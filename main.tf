@@ -16,6 +16,10 @@ resource "aws_instance" "week2_task" {
   }
 }
 
+output "ec2_global_ips" {
+  value = ["${aws_instance.week2_task.*.public_ip}"]
+}
+
 resource "aws_security_group" "week2_task" {
   name = "Docker&Docker-Compose security group"
   # description = ""
